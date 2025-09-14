@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reaction Coordinates — Catalyst vs Heat (Cannabis Cultivation)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Reaction Coordinates: Effects of a Catalyst and Added Heat (ΔT = +30 °C)</h1>
+    <p class="subtitle">Visualizing energy changes along a reaction coordinate, then applying the idea to a cannabis-cultivation reaction.</p>
+  </header>
+
+  <nav class="controls" aria-label="Slide controls">
+    <button id="prevBtn" type="button" aria-label="Previous slide">◀ Prev</button>
+    <div class="dots" role="tablist" aria-label="Slides">
+      <button class="dot" data-slide="0" role="tab" aria-selected="true" aria-controls="slide-0" title="Slide 1: General coordinate"></button>
+      <button class="dot" data-slide="1" role="tab" aria-selected="false" aria-controls="slide-1" title="Slide 2: Catalyst"></button>
+      <button class="dot" data-slide="2" role="tab" aria-selected="false" aria-controls="slide-2" title="Slide 3: Heat (+30°C)"></button>
+      <button class="dot" data-slide="3" role="tab" aria-selected="false" aria-controls="slide-3" title="Slide 4: Cannabis example"></button>
+    </div>
+    <button id="nextBtn" type="button" aria-label="Next slide">Next ▶</button>
+  </nav>
+
+  <main id="slides" class="slides" aria-live="polite">
+
+    <!-- SLIDE 1: GENERAL REACTION COORDINATE -->
+    <section class="slide current" id="slide-0" role="tabpanel" aria-labelledby="tab-0">
+      <h2>1) General Reaction Coordinate</h2>
+      <div class="graphic-wrap">
+        <!-- Inline SVG: axes + uncatalyzed curve -->
+        <svg viewBox="0 0 900 520" class="rc-plot" role="img" aria-label="Reaction coordinate diagram showing energy barrier between reactants and products">
+          <!-- axes -->
+          <line x1="70" y1="440" x2="860" y2="440" class="axis" />
+          <line x1="70" y1="440" x2="70" y2="60" class="axis" />
+          <text x="15" y="70" class="label rotate">Potential Energy</text>
+          <text x="780" y="475" class="label">Reaction Coordinate</text>
+
+          <!-- baseline reactants/products -->
+          <line x1="120" y1="360" x2="120" y2="360" class="baseline" />
+          <text x="105" y="380" class="tick">Reactants</text>
+          <line x1="780" y1="300" x2="780" y2="300" class="baseline" />
+          <text x="760" y="320" class="tick">Products</text>
+
+          <!-- uncatalyzed pathway -->
+          <path class="curve" d="M120,360 C260,80 640,120 780,300" />
+          <!-- activation energy marker -->
+          <line x1="450" y1="180" x2="450" y2="360" class="brace" />
+          <text x="460" y="270" class="label">Eₐ (activation energy)</text>
+          <!-- ΔE arrow -->
+          <line x1="820" y1="360" x2="820" y2="300" class="brace" />
+          <text x="830" y="335" class="label">ΔE</text>
+        </svg>
+      </div>
+      <div class="notes">
+        <ul>
+          <li><strong>Reactants → Products</strong> along the x-axis (progress of reaction).</li>
+          <li><strong>Energy barrier (Eₐ)</strong> must be overcome to form products.</li>
+          <li><strong>ΔE</strong> indicates overall energy change (endo/exothermic depending on sign).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: CATALYST EFFECT -->
+    <section class="slide" id="slide-1" role="tabpanel" aria-labelledby="tab-1">
+      <h2>2) Effect of a Catalyst (dotted line “a”)</h2>
+      <div class="graphic-wrap">
+        <svg viewBox="0 0 900 520" class="rc-plot" role="img" aria-label="Reaction coordinate with catalyzed and uncatalyzed paths">
+          <!-- axes -->
+          <line x1="70" y1="440" x2="860" y2="440" class="axis" />
+          <line x1="70" y1="440" x2="70" y2="60" class="axis" />
+          <text x="15" y="70" class="label rotate">Potential Energy</text>
+          <text x="780" y="475" class="label">Reaction Coordinate</text>
+
+          <!-- uncatalyzed -->
+          <path class="curve" d="M120,360 C260,80 640,120 780,300" />
+          <!-- catalyzed (lower barrier) -->
+          <path class="curve dotted" d="M120,360 C260,180 640,200 780,300" />
+          <text x="310" y="210" class="label small">a: catalyzed (lower Eₐ)</text>
+
+          <!-- Ea arrows -->
+          <line x1="450" y1="180" x2="450" y2="360" class="brace" />
+          <text x="460" y="270" class="label">Eₐ (uncat.)</text>
+
+          <line x1="520" y1="220" x2="520" y2="360" class="brace dashed" />
+          <text x="530" y="300" class="label">Eₐ (cat.)</text>
+
+          <!-- ΔE unchanged -->
+          <line x1="820" y1="360" x2="820" y2="300" class="brace" />
+          <text x="830" y="335" class="label">ΔE</text>
+        </svg>
+      </div>
+      <div class="callouts">
+        <p><strong>Rate effect:</strong> Lower Eₐ ⇒ larger fraction of collisions cross the barrier ⇒ <em>faster</em> reaction. <strong>Thermodynamics (ΔE)</strong> is unchanged; only the <strong>pathway</strong> and <strong>kinetics</strong> change.</p>
+      </div>
+      <details class="explain">
+        <summary>100-word explanation (editable)</summary>
+        <p>
+          Introducing a catalyst creates an alternative pathway with a lower activation energy (Eₐ). Because fewer joules are required for the transition-state to form, a larger fraction of molecular collisions have sufficient energy at the same temperature. This increases the rate constant (k) without changing reactant or product energies, so ΔE and the reaction’s thermodynamic favorability remain unchanged. In other words, catalysts accelerate how quickly equilibrium is reached but do not alter the equilibrium position. On a reaction coordinate diagram, this appears as a dotted curve with a lower peak; arrows to the barrier emphasize the kinetic advantage gained.
+        </p>
+      </details>
+    </section>
+
+    <!-- SLIDE 3: HEAT EFFECT -->
+    <section class="slide" id="slide-2" role="tabpanel" aria-labelledby="tab-2">
+      <h2>3) Effect of Added Heat (+30 °C) (dotted line “b”)</h2>
+      <div class="graphic-wrap">
+        <svg viewBox="0 0 900 520" class="rc-plot" role="img" aria-label="Reaction coordinate with temperature effect and MB inset">
+          <!-- axes -->
+          <line x1="70" y1="440" x2="860" y2="440" class="axis" />
+          <line x1="70" y1="440" x2="70" y2="60" class="axis" />
+          <text x="15" y="70" class="label rotate">Potential Energy</text>
+          <text x="780" y="475" class="label">Reaction Coordinate</text>
+
+          <!-- baseline -->
+          <path class="curve" d="M120,360 C260,80 640,120 780,300" />
+          <!-- temperature 'dotted line' kept at same barrier height to stress Ea unchanged -->
+          <path class="curve dotted sameEa" d="M120,360 C260,85 640,125 780,300" />
+          <text x="300" y="140" class="label small">b: +30 °C (Eₐ unchanged)</text>
+
+          <!-- Ea marker (same) -->
+          <line x1="450" y1="180" x2="450" y2="360" class="brace" />
+          <text x="460" y="270" class="label">Eₐ</text>
+
+          <!-- inset: Maxwell–Boltzmann distribution -->
+          <g transform="translate(535,48)">
+            <rect x="0" y="0" width="320" height="180" class="inset"/>
+            <text x="10" y="18" class="label small">More molecules above Eₐ at higher T</text>
+            <!-- low T curve -->
+            <path d="M10,150 C60,20 160,20 300,150" class="mb low"/>
+            <!-- high T curve -->
+            <path d="M10,160 C90,60 200,40 300,160" class="mb high"/>
+            <!-- Ea cutoff -->
+            <line x1="230" y1="10" x2="230" y2="170" class="ea-line"/>
+            <text x="235" y="165" class="label tiny">Eₐ</text>
+          </g>
+        </svg>
+      </div>
+      <div class="callouts">
+        <p><strong>Rate effect:</strong> Raising temperature doesn’t change Eₐ or ΔE on the diagram, but it <em>increases the fraction</em> of molecules with energy ≥ Eₐ (Arrhenius). Result: higher k and a faster rate. Your dotted line “b” is included per instructions, with a note that the barrier is conceptually unchanged.</p>
+      </div>
+      <details class="explain">
+        <summary>100-word explanation (editable)</summary>
+        <p>
+          Increasing temperature by ~30 °C raises average molecular kinetic energy and broadens the Maxwell–Boltzmann distribution. Even though the activation energy (Eₐ) is the same, a larger fraction of molecules now have energies at or above Eₐ, so the rate constant k increases (k = A·e^(−Eₐ/RT)). The energy landscape (reactants, transition state, products) is essentially unchanged, but the dynamics shift: more successful collisions per unit time, faster approach to equilibrium, and shorter half-life for the same reaction. This is why heating can mimic some rate benefits of catalysis, but unlike a catalyst, temperature raises energy for everything and can accelerate side reactions, too.
+        </p>
+      </details>
+    </section>
+
+    <!-- SLIDE 4: APPLICATION TO CANNABIS CULTIVATION -->
+    <section class="slide" id="slide-3" role="tabpanel" aria-labelledby="tab-3">
+      <h2>4) Applying Reaction Coordinates to Cannabis Cultivation: Nitrification in Grow Media</h2>
+      <div class="graphic-wrap">
+        <svg viewBox="0 0 900 520" class="rc-plot" role="img" aria-label="Energy profile for enzyme-catalyzed nitrification">
+          <!-- axes -->
+          <line x1="70" y1="440" x2="860" y2="440" class="axis" />
+          <line x1="70" y1="440" x2="70" y2="60" class="axis" />
+          <text x="15" y="70" class="label rotate">Potential Energy</text>
+          <text x="780" y="475" class="label">Reaction Coordinate</text>
+
+          <!-- overall (schematic): NH4+ → NO2- → NO3- (lumped as single profile) -->
+          <!-- Uncatalyzed (very high) -->
+          <path class="curve faint" d="M120,360 C260,70 640,90 780,320" />
+          <!-- Enzyme-catalyzed (lowered) -->
+          <path class="curve dotted" d="M120,360 C260,190 640,210 780,320" />
+          <text x="305" y="210" class="label small">Enzyme-catalyzed (nitrifiers)</text>
+
+          <!-- Labels -->
+          <text x="100" y="380" class="tick">NH₄⁺ (ammonium)</text>
+          <text x="735" y="340" class="tick">NO₃⁻ (nitrate)</text>
+
+          <!-- Ea markers -->
+          <line x1="470" y1="200" x2="470" y2="360" class="brace dashed" />
+          <text x="480" y="290" class="label">Lower Eₐ via enzymes</text>
+
+          <!-- ΔE note -->
+          <line x1="820" y1="360" x2="820" y2="320" class="brace" />
+          <text x="830" y="345" class="label">ΔE (overall)</text>
+        </svg>
+      </div>
+
+      <div class="notes">
+        <h3>Why this matters in cultivation</h3>
+        <ul>
+          <li><strong>Nitrification</strong>: NH₄⁺ → NO₂⁻ → NO₃⁻ by nitrifying microbes (e.g., <em>Nitrosomonas</em>, <em>Nitrobacter</em>); enzyme-catalyzed ⇒ <strong>lower Eₐ</strong>, faster conversion.</li>
+          <li><strong>Temperature</strong>: Rates typically increase toward ~25–30 °C in media; colder rooms slow conversion (fewer molecules ≥ Eₐ).</li>
+          <li><strong>pH coupling</strong>: Process releases H⁺, tending to lower pH over time—relevant for nutrient availability in cannabis.</li>
+        </ul>
+      </div>
+
+      <details class="explain">
+        <summary>100-word application (editable)</summary>
+        <p>
+          In cannabis cultivation, nitrification converts ammonium (NH₄⁺) to nitrate (NO₃⁻), the form roots readily uptake. The biology supplies the “catalyst”: microbial enzymes that lower the activation energy, dramatically accelerating the transformation compared with the uncatalyzed path. Temperature also modulates kinetics—near 25–30 °C, more molecular collisions exceed Eₐ, so conversion is faster; in cool media, rates drop. On a reaction coordinate, the enzyme-catalyzed curve shows a smaller barrier, while a temperature increase leaves Eₐ unchanged but increases the fraction of molecules above it. Practically, stable warm temperatures and healthy microbial populations support reliable nitrate availability and steadier feed schedules.
+        </p>
+      </details>
+
+      <div class="footnote">
+        <p class="tiny">
+          (Instructor note: This slide connects reaction coordinates to a cultivation-relevant reaction. Diagram is schematic; exact energies depend on system specifics.)
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <button id="downloadPng" type="button" title="Export current slide as PNG">Export current slide as PNG</button>
+    <p>Use these slides directly for presentation or screenshot each for insertion into PowerPoint.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
