@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reaction Coordinate — Catalyst & Heat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Reaction Coordinate: Effects of a Catalyst and Added Heat</h1>
+    <p class="subtitle">Interactive energy diagram for a single-step reaction</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="control">
+        <input type="checkbox" id="toggleCatalyst" />
+        <label for="toggleCatalyst">Show catalyst effect (dotted curve “a”)</label>
+      </div>
+      <div class="control">
+        <input type="checkbox" id="toggleHeat" />
+        <label for="toggleHeat">Show added heat +30 °C (dotted overlay “b”)</label>
+      </div>
+      <div class="control">
+        <label for="deltaH">Reaction enthalpy ΔH:</label>
+        <select id="deltaH">
+          <option value="exo">Exothermic (products lower)</option>
+          <option value="endo">Endothermic (products higher)</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="barrier">Barrier height (relative):</label>
+        <input id="barrier" type="range" min="0.6" max="1.6" step="0.05" value="1.0" />
+      </div>
+      <button id="downloadPng" class="btn">Download PNG</button>
+    </section>
+
+    <section class="canvas-wrap">
+      <svg id="rcSVG" width="960" height="520" role="img" aria-label="Reaction coordinate diagram"></svg>
+      <footer class="figure-caption">
+        <span><strong>a</strong>: catalyst lowers activation energy (dotted).</span>
+        <span><strong>b</strong>: added heat +30 °C increases the fraction of molecules with energy ≥ E<sub>a</sub> (dotted overlay); the potential energy curve itself does not change with temperature.</span>
+      </footer>
+    </section>
+
+    <section class="explain">
+      <h2>Explanation (edit to 100+ words)</h2>
+      <textarea id="explanation" rows="10">
+Adding a catalyst (a) provides an alternative pathway with a lower activation energy (Eₐ), which increases the rate constant k without changing the energies of reactants or products (ΔH unchanged). On the potential-energy diagram, this appears as a dotted curve with a lower barrier height and a lower transition-state energy. 
+
+Adding heat by +30 °C (b) does not change the potential-energy surface or Eₐ itself. Instead, the higher temperature increases the fraction of molecules in the Maxwell–Boltzmann distribution that possess energy ≥ Eₐ. As a result, more collisions are effective per unit time and the reaction rate increases. In the diagram, this is shown as a dotted energy-population overlay and a larger shaded region above Eₐ. 
+      </textarea>
+      <div class="two-col">
+        <div>
+          <h3>Apply to your chosen reaction</h3>
+          <textarea id="application" rows="8" placeholder="Identify a real reaction from your project. Explain how the catalyst would lower Eₐ and how a 30 °C increase would change rate via k = A·e^(−Ea/RT), while ΔH and equilibrium are unchanged by a catalyst."></textarea>
+        </div>
+        <div class="notes">
+          <h4>Labeling checklist</h4>
+          <ul>
+            <li>Reactants, Products</li>
+            <li>Transition State (TS)</li>
+            <li>E<sub>a</sub> (arrow from reactants to TS)</li>
+            <li>ΔH (arrow between reactants and products)</li>
+            <li>Dotted “a” (catalyst), dotted “b” (heat overlay)</li>
+            <li>Arrows pointing to barriers with “faster rate” notes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
